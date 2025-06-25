@@ -11,7 +11,7 @@ exports.register = async (req, res) => {
   const token = generateToken(user);
    res.cookie('token', token, {
     httpOnly: true,
-    secure: false,
+    secure:  process.env.NODE_ENV === 'production',
     sameSite: 'lax',
     maxAge: 5*24*60*60*1000,
   });
@@ -36,7 +36,7 @@ exports.login = async (req, res) => {
   const token = generateToken(user);
   res.cookie('token', token, {
     httpOnly: true,
-    secure: false,
+    secure:  process.env.NODE_ENV === 'production',
     sameSite: 'lax',
     maxAge: 5*24*60*60*1000,
   });
@@ -54,7 +54,7 @@ exports.login = async (req, res) => {
 exports.logout = (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
-    secure: false,
+    secure:  process.env.NODE_ENV === 'production',
     sameSite: 'Strict'
   }).json({message: "Logged Out"});
 }
@@ -78,7 +78,7 @@ exports.becomeSeller = async (req, res) => {
     // Set it in HTTP-only cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false,
+      secure: process.env.NODE_ENV === 'production',
       sameSite: "lax",
       maxAge: 5 * 24 * 60 * 60 * 1000, // 7 days
     });
