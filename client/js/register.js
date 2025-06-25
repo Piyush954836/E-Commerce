@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const data = await response.json();
       if (response.ok) {
-        alert("Registration Successfull");
+        window.location.href = '/login';
       } else {
         alert("Error: " + (data.message || "Registration failed"));
       }

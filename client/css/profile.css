@@ -1,0 +1,127 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #d0f0ec, #e6f0ff);
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  background: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: #00796b;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+}
+.nav-links .active {
+  color: #009688;
+}
+
+/* Header */
+.profile-header {
+  background: linear-gradient(to right, #b2fefa, #0ed2f7);
+  padding: 30px 20px;
+  text-align: center;
+  color: #005f73;
+}
+.profile-header h2 {
+  margin: 0;
+  font-size: 28px;
+}
+.profile-header p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Cart Container */
+.cart-wrapper {
+  padding: 40px 20px;
+}
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+.cart-item {
+  display: flex;
+  flex-wrap: wrap;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.cart-item:hover {
+  transform: translateY(-2px);
+}
+.cart-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+.cart-item-info {
+  flex: 1;
+  padding: 15px;
+}
+.cart-item-info h4 {
+  margin: 0;
+  font-size: 20px;
+}
+.cart-item-info p {
+  margin: 8px 0;
+}
+.cart-item-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  padding: 15px;
+}
+.cart-item-actions input {
+  width: 60px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button.update {
+  background-color: #4caf50;
+  color: white;
+  margin-bottom: 8px;
+}
+button.remove {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Footer */
+footer {
+  background: #00796b;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  margin-top: 265px;
+}

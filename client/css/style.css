@@ -18,6 +18,7 @@ body {
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -43,7 +44,6 @@ body {
   color: #ff7b54;
 }
 
-
 .hero {
   padding: 6rem 2rem;
   text-align: center;
@@ -54,7 +54,6 @@ body {
   background-repeat: no-repeat;
   color: #333;
 }
-
 
 .hero h2 {
   font-family: 'Baloo 2', cursive;
@@ -72,8 +71,6 @@ body {
   text-shadow: 0 1px 2px rgba(255,255,255,0.6);
   margin-bottom: 2rem;
 }
-
-
 
 .btn-solid {
   background-color: #ff4d6d;
@@ -114,17 +111,10 @@ body {
   text-align: center;
   transition: transform 0.3s;
 }
-.product-card button {
-  margin-top: 1rem;
-  cursor: pointer;
-  width: 100%;
-  font-size: 0.95rem;
-}
 
 .product-card:hover {
   transform: translateY(-5px);
 }
-
 
 .product-card img {
   max-width: 100%;
@@ -140,6 +130,13 @@ body {
 .product-card p {
   color: #888;
   font-size: 0.9rem;
+}
+
+.product-card button {
+  margin-top: 1rem;
+  cursor: pointer;
+  width: 100%;
+  font-size: 0.95rem;
 }
 
 footer {
@@ -178,3 +175,93 @@ footer {
   color: #555;
 }
 
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .hero h2 {
+    font-size: 3.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .product-card {
+    width: 45%;
+  }
+
+  .product-page-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-panel {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .product-card {
+    width: 100%;
+  }
+
+  .btn-solid {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+  }
+
+  .hero {
+    padding: 4rem 1rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .btn-solid {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.3rem;
+  }
+
+  .filter-panel {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}

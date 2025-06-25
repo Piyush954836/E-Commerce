@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(to right, #f6d8f7, #e6e1ff);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+h1, h2 {
+  text-align: center;
+  color: #6b2f9a;
+  margin: 20px 0;
+}
+
+.upload-form,
+.product-list,
+.orders {
+  margin: 30px 0;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, #fef6ff, #f5e9fc);
+  box-shadow: 0 4px 6px rgba(102, 51, 153, 0.08);
+}
+
+/* Form layout */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form input,
+form select,
+form textarea,
+form button {
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid #d8b4e2;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #a66dd4;
+}
+
+form button {
+  background: linear-gradient(to right, #c471f5, #fa71cd);
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: linear-gradient(to right, #a24cf1, #e857b2);
+}
+
+#productContainer,
+#ordersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-card,
+.order-card {
+  background: white;
+  border: 1px solid #e0d4f5;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  max-width: 100%;
+  box-shadow: 0 4px 12px rgba(153, 102, 204, 0.12);
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover,
+.order-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.product-card button,
+.order-card button {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.product-card button.edit {
+  background: #6c63ff;
+  margin-right: 10px;
+}
+
+.product-card button.edit:hover {
+  background: #574bfa;
+}
+
+.product-card button:not(.edit),
+.order-card button {
+  background: #ff6b81;
+}
+
+.product-card button:not(.edit):hover,
+.order-card button:hover {
+  background: #ff4f6e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  form input,
+  form select,
+  form textarea,
+  form button {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .product-card,
+  .order-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 22px;
+  }
+
+  .product-card,
+  .order-card {
+    padding: 15px;
+  }
+
+  form {
+    gap: 12px;
+  }
+
+  form input,
+  form select,
+  form textarea,
+  form button {
+    font-size: 14px;
+  }
+}

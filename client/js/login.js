@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', function(){
           email,
           password
         }),
-        credentials: 'include'
+        credentials: "include",
       })
       const data = await response.json();
       if(response.ok){
-        alert('Successfully Login');
+        window.location.href = '/';
       }
       else{
         alert("Error: " + (data.message || 'login failed'));

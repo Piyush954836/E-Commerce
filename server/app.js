@@ -11,17 +11,17 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors({
-  origin: process.env.PORT,
-  credentials: true,
-}));
+
 app.use(express.json());
 app.use(cookieParse());
 app.use(express.static(path.join(__dirname, '..', 'client')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
-// app.use('/api/products', require('./routes/productRoutes'));
+app.use('/api/products', require('./routes/productRoutes'));
+app.use('/api/cart', require('./routes/cartRoutes'));
+
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
@@ -33,11 +33,19 @@ app.get('/register', (req, res) => {
 
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'pages', 'login.html'));
-})
+});
 
 app.get('/product', isLoggenIn, (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'pages', 'product.html'));
-})
+});
+
+app.get('/seller', isLoggenIn, (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'client', 'pages', 'seller.html'));
+});
+
+app.get('/profile', isLoggenIn, (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'client', 'pages', 'profile.html'));
+});
 
 app.get('/check-auth',isLoggenIn, (req, res) => {
   res.json({loggedIn: true, user: req.user});
