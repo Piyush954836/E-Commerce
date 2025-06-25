@@ -1,23 +1,48 @@
 const Product = require("../models/Product");
+const cloudinary = require('../utils/cloudinary');
 
 exports.createProduct = async (req, res) => {
   const { title, description, price, category, quantity } = req.body;
-  const image = req.file ? `/uploads/${req.file.filename}` : null;
+
   try {
+    let imageUrl = null;
+
+    if (req.file) {
+      // Upload image from memory buffer
+      const uploadResult = await new Promise((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+          {
+            folder: 'products',
+            resource_type: 'image'
+          },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+          }
+        );
+        stream.end(req.file.buffer); // send buffer to stream
+      });
+
+      imageUrl = uploadResult.secure_url;
+    }
+
     const product = await Product.create({
       title,
       description,
       price,
       category,
       quantity,
-      image,
+      image: imageUrl,
       seller: req.user._id,
     });
+
     res.status(201).json(product);
   } catch (err) {
+    console.error("Cloudinary Upload Error:", err);
     res.status(500).json({ error: "Product creation failed" });
   }
 };
+
 
 exports.updateProduct = async (req, res) => {
   const productId = req.params.id;
